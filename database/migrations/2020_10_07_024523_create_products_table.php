@@ -16,6 +16,15 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
+            $table->string('name');
+            $table->foreignId('brand_id')->constrained();
+            $table->string('origin');
+            $table->bigInteger('stock');
+            $table->double('price');
+            $table->bigInteger('sold_units');
+            $table->foreignId('offer_id')->constrained()->onDelete('cascade');
+            $table->foreignId('offer_by_quantity_id')->constrained('offers_by_quantity')->onDelete('cascade');
         });
     }
 

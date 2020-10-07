@@ -16,8 +16,8 @@ class CreateOffersByQuantityTable extends Migration
         Schema::create('offers_by_quantity', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('discount_percentage', 100)->unsigned();
-            $table->integer('minimum_amount', 100)->unsigned();
+            $table->integer('discount_percentage');
+            $table->integer('minimum_amount');
             $table->date('start_date');
             $table->date('end_date');
         });

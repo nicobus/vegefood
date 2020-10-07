@@ -16,7 +16,7 @@ class CreateOffersTable extends Migration
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('discount_percentage', 100)->unsigned();
+            $table->integer('discount_percentage');
             $table->date('start_date');
             $table->date('end_date');
         });

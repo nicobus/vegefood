@@ -14,8 +14,7 @@ class AddAdressIdToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('adress_id')->unsigned();
-            $table->foreign('adress_id')->references('id')->on('adresses');
+            $table->foreignId('adress_id')->constrained()->onDelete('cascade');
         });
     }
 
@@ -27,7 +26,7 @@ class AddAdressIdToUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('adress_id');
+            $table->dropForeign('adress_id');
         });
     }
 }
